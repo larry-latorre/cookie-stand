@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+}
+header{
+    background-color: #111;
+    color: #FA7F72;
+    text-align: center;
+    margin: 0;
+    padding: 50px;
+    font-family: 'Righteous', sans-serif;
+}
+
+h1{
+    margin: 0;
+    font-size: 50px;
+}
+
+nav{
+    background-color: #FA7F72;
+    margin: 0;
+    padding: 15px;
+}
