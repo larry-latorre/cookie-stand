@@ -27,38 +27,59 @@ const container = document.getElementById('root');
 let totalSold = 0;
 
 //creates paragraph
-let newParagraphElement = document.createElement('h2');
+/*let newParagraphElement = document.createElement('h2');
 container.appendChild(newParagraphElement);
-newParagraphElement.textContent = this.name;
+newParagraphElement.textContent = this.name;*/
 
 //create unordered list
-let newListElement = document.createElement('ul');
-container.appendChild(newListElement);
+/*let newListElement = document.createElement('ul');
+container.appendChild(newListElement);*/
 
+const tableElement = document.createElement('table');
+    container.appendChild(tableElement);
 
-
-for(i=0;i < this.sales.length;i++){
-let liElement = document.createElement('li');
-    newListElement.appendChild(liElement);
-    const cookiesSold = this.sales[i];
-    totalSold += cookiesSold;
-    liElement.textContent = `${hours[i]}: ${cookiesSold} cookies`;
-}
-
-    let totalItem = document.createElement('li');
-    newListElement.appendChild(totalItem);
-    totalItem.textContent = `Total: ${totalSold} cookies`;
+    const headerRow = document.createElement('tr');
+    tableElement.appendChild(headerRow);
 
     
+    const cityHeaderCell = document.createElement('td');
+    headerRow.appendChild(cityHeaderCell);
+    cityHeaderCell.textContent = this.name;
+
+
+//create table
+for(i=0;i < this.sales.length;i++){
+let tableHeaderElement = document.createElement('th');
+    tableElement.appendChild(tableHeaderElement);
+    const cookiesSold = this.sales[i];
+    totalSold += cookiesSold;
+    tableHeaderElement.textContent = `${hours[i]}: ${cookiesSold} cookies`;
 }
+
+    let totalItem = document.createElement('td');
+    tableElement.appendChild(totalItem);
+    totalItem.textContent = `Total: ${totalSold} cookies`;
+    
+    
+    
+}
+
 
   
   
 
 // Create a new City instance for Seattle
-const seattle = new City('Seattle', 2, 4, 6.3,);
 
+const seattle = new City('Seattle', 2, 4, 6.3,);
+const tokyo = new City('Tokyo', 2, 4, 6.3,);
+const dubai = new City('Dubai', 2, 4, 6.3,);
+const paris = new City('Paris', 2, 4, 6.3,);
+const lima = new City('Lima', 2, 4, 6.3,);
 seattle.render();
+tokyo.render();
+dubai.render();
+paris.render();
+lima.render();
 
 
 

@@ -27,3 +27,8 @@ nav{
 li{
     list-style: none;
 }
+
+table{
+    border: #111 solid 3px;
+    width: 100px;
+}
