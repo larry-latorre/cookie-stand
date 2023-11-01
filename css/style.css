@@ -15,8 +15,20 @@ h1{
     font-size: 50px;
 }
 
+P{
+    font-family: 'Righteous', sans-serif;
+}
 nav{
     background-color: #FA7F72;
     margin: 0;
     padding: 15px;
+}
+
+li{
+    list-style: none;
+}
+
+table{
+    border: #111 solid 3px;
+    width: 100px;
 }
