@@ -1,85 +1,54 @@
-function getRandomCustomers(min, max) {
+function randomMinMax(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+function sales(){
+    const sales = [];
+    for (i=0; i< hours.length;i++){
+   const numCustomer = randomMinMax(seattle.minCustomers,seattle.maxCustomers);
+   const perHourSold = numCustomer * seattle.avgSold;
+   sales.push(perHourSold);
+}
+return sales;
+}
+
 const hours = ['6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm']
-//constructor
-function City(name,minCustomers,maxCustomers,avgCookiesPerCustomer,){
-    this.name = name;
-    this.minCustomers = minCustomers;
-    this.maxCustomers = maxCustomers;
-    this.avgCookiesPerCustomer = avgCookiesPerCustomer;
-    this.sales = this.generateHourlySales();
+//objects
+const seattle = {
+    name: "Seattle",
+    minCustomers: 4,
+    maxCustomers: 24,
+    avgSold: 6.3,
+    sales: [],
+    generateSales:function(){
+       this.sales = sales(); 
+    }
 } 
 
-//add methods
-City.prototype.generateHourlySales = function(){
-    const sales = []
-    for (let i = 0; i < hours.length; i++){
-        const customers = getRandomCustomers(this.minCustomers,this.maxCustomers);
-        const hourlySales = Math.ceil(customers * this.avgCookiesPerCustomer);
-        sales.push(hourlySales);
-    }
-    return sales;
-};
-
-City.prototype.render = function () {
+seattle.generateSales();
 const container = document.getElementById('root');
-let totalSold = 0;
+//create h2
+const headerElem = document.createElement('h2');
+container.appendChild(headerElem);
+headerElem.textContent = 'Seattle';
+//create ul
+const ulElem = document.createElement('ul');
+container.appendChild(ulElem);
 
-//creates paragraph
-/*let newParagraphElement = document.createElement('h2');
-container.appendChild(newParagraphElement);
-newParagraphElement.textContent = this.name;*/
-
-//create unordered list
-/*let newListElement = document.createElement('ul');
-container.appendChild(newListElement);*/
-
-const tableElement = document.createElement('table');
-    container.appendChild(tableElement);
-
-    const headerRow = document.createElement('tr');
-    tableElement.appendChild(headerRow);
-
-    
-    const cityHeaderCell = document.createElement('td');
-    headerRow.appendChild(cityHeaderCell);
-    cityHeaderCell.textContent = this.name;
-
-
-//create table
-for(i=0;i < this.sales.length;i++){
-let tableHeaderElement = document.createElement('th');
-    tableElement.appendChild(tableHeaderElement);
-    const cookiesSold = this.sales[i];
-    totalSold += cookiesSold;
-    tableHeaderElement.textContent = `${hours[i]}: ${cookiesSold} cookies`;
+//create li and loop hours array
+totalSold = 0;
+for (i = 0;i < hours.length; i++){
+    const liElem = document.createElement('li');
+    ulElem.appendChild(liElem);
+    const cookiesSold = totalSold += seattle.sales[i];
+    const salesInfo =  `${hours[i]}: ${cookiesSold} cookies`; 
+    liElem.textContent = salesInfo;
 }
+//create another li to display total
+const totalLiElem = document.createElement('li');
+ulElem.appendChild(totalLiElem);
+const totalInfo = `Total: ${totalSold} cookies`;
+totalLiElem.textContent = totalInfo;
 
-    let totalItem = document.createElement('td');
-    tableElement.appendChild(totalItem);
-    totalItem.textContent = `Total: ${totalSold} cookies`;
-    
-    
-    
-}
-
-
-  
-  
-
-// Create a new City instance for Seattle
-
-const seattle = new City('Seattle', 2, 4, 6.3,);
-const tokyo = new City('Tokyo', 2, 4, 6.3,);
-const dubai = new City('Dubai', 2, 4, 6.3,);
-const paris = new City('Paris', 2, 4, 6.3,);
-const lima = new City('Lima', 2, 4, 6.3,);
-seattle.render();
-tokyo.render();
-dubai.render();
-paris.render();
-lima.render();
-
+console.log(seattle);
 
 
