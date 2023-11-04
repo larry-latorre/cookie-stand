@@ -37,7 +37,7 @@ Store.prototype.cookieSales = function () {
     addedStoreSales.push(perHourSold);
   }
   return sales;
-}
+};
 
 Store.prototype.render = function () {
   const row = document.createElement('tr');
@@ -74,7 +74,7 @@ function renderHeaderRow() {
 
   const cityCell = document.createElement('th');
   cityCell.textContent = 'Locations';
-  cityCell.setAttribute('colspan', 3)
+  cityCell.setAttribute('colspan', 3);
 
 
   tableRow.appendChild(cityCell);
@@ -180,7 +180,7 @@ function handlingSubmit(event) {
   const avgSold = parseFloat(event.target.avgSold.value);
   const store = new Store(cityName, minCustomers, maxCustomers, avgSold);
   stores.push(store);
-console.log(stores);
+  console.log(stores);
   store.render();
   renderStoreRow(store);
   renderFooterRow();
