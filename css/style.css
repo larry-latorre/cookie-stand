@@ -32,23 +32,27 @@ li{
     list-style: none;
 }
 
-table{
-    border: #111 solid 3px;
-    width: 100px;
-}
+
 
 footer{
     background-color: #CCCCCC;
     padding: 75px;
 }
+/* tables */
+
+table{
+    border: #111 solid 3px;
+    width: 100px;
+}
 
 #root{
-    margin: auto;
+    margin:75px auto;
 }
+
 
 table{
     margin: auto;
-    padding: 0;
+    height: 275px;
     border-collapse: collapse;
 }
 tr{
@@ -60,4 +64,5 @@ td{
 
 th{
     background-color: #808080;
+    padding: 15px;
 }
